@@ -4,7 +4,7 @@ A Simple calculator app that builth with Flutter.
 
 ### Preview
 
-![Preview](https://github.com/ahanafi/flutter-calculator-app)
+![Preview](https://raw.githubusercontent.com/ahanafi/flutter-calculator-app/main/preview/preview.png)
 
 ## Getting Started
 
