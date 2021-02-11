@@ -1,6 +1,6 @@
-# my_calculator_app
+# My Calculator App
 
-A new Flutter application.
+A Simple calculator app that builth with Flutter.
 
 ## Getting Started
 
