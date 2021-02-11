@@ -10,22 +10,21 @@ class MyCustomButton extends StatelessWidget {
       {Key key,
       this.text,
       this.btnType = 'number',
-      this.btnWidth = 100,
+      this.btnWidth = 4,
       this.callback})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 2.5),
       child: SizedBox(
-        width: btnWidth,
-        height: 100,
+        width: MediaQuery.of(context).size.width / btnWidth,
+        height: MediaQuery.of(context).size.width / 4,
         child: FlatButton(
-          shape: RoundedRectangleBorder(),
+          shape: Border.all(color: Colors.white, width: 1.0),
           child: Text(
             text,
-            style: TextStyle(fontSize: 30),
+            style: TextStyle(fontSize: MediaQuery.of(context).size.width / 16),
           ),
           onPressed: () {
             callback(text);

@@ -26,7 +26,7 @@ class CalculatorAppState extends State<MyHomePage> {
   String _calculationHistory = '';
 
   void btnClick(String text) {
-    final List<String> expressionList = ['+', '-', '*', '/', '%', '='];
+    final List<String> expressionList = ['+', '-', '*', '/', '%', '=', '.'];
 
     final bool isInputExpression =
         (expressionList.contains(text)) ? true : false;
@@ -90,13 +90,16 @@ class CalculatorAppState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFF283637),
+        resizeToAvoidBottomPadding: false,
         body: Container(
-          margin: EdgeInsets.all(5.0),
+          height: MediaQuery.of(context).size.height / 1,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(bottom: 10.0),
+                  margin: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height / 500),
+                  //height: MediaQuery.of(context).size.height / 10,
                   child: Text(_calculationHistory,
                       style: TextStyle(fontSize: 30, color: Colors.grey),
                       textAlign: TextAlign.right),
@@ -104,69 +107,91 @@ class CalculatorAppState extends State<MyHomePage> {
                   padding: EdgeInsets.only(right: 10.0),
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 30.0),
+                  margin: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height / 90),
+                  //height: MediaQuery.of(context).size.height / 10,
                   child: Text(_mathOperation,
                       style: TextStyle(fontSize: 60, color: Colors.white),
                       textAlign: TextAlign.right),
                   alignment: Alignment(1, 1),
                   padding: EdgeInsets.only(right: 10.0),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    MyCustomButton(
-                        text: "CLEAR",
-                        btnWidth: 202,
-                        btnType: 'operation',
-                        callback: clearResult),
-                    MyCustomButton(
-                        text: "%", btnType: 'operation', callback: btnClick),
-                    MyCustomButton(
-                        text: "/", btnType: 'operation', callback: btnClick)
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    MyCustomButton(text: "7", callback: btnClick),
-                    MyCustomButton(text: "8", callback: btnClick),
-                    MyCustomButton(text: "9", callback: btnClick),
-                    MyCustomButton(
-                        text: "*", btnType: 'operation', callback: btnClick)
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    MyCustomButton(text: "4", callback: btnClick),
-                    MyCustomButton(text: "5", callback: btnClick),
-                    MyCustomButton(text: "6", callback: btnClick),
-                    MyCustomButton(
-                        text: "-", btnType: 'operation', callback: btnClick)
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    MyCustomButton(text: "1", callback: btnClick),
-                    MyCustomButton(text: "2", callback: btnClick),
-                    MyCustomButton(text: "3", callback: btnClick),
-                    MyCustomButton(
-                        text: "+", btnType: 'operatio', callback: btnClick)
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    MyCustomButton(text: "0", callback: btnClick),
-                    MyCustomButton(text: ".", callback: btnClick),
-                    MyCustomButton(
-                        text: "=",
-                        btnType: 'operation',
-                        btnWidth: 202,
-                        callback: calculate)
-                  ],
-                ),
+                Container(
+                  //height: MediaQuery.of(context).size.height / 1,
+                  child: Wrap(
+                    spacing: 0,
+                    runSpacing: 0,
+                    direction: Axis.vertical,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MyCustomButton(
+                              text: "CLEAR",
+                              btnWidth: 2,
+                              btnType: 'operation',
+                              callback: clearResult),
+                          MyCustomButton(
+                              text: "%",
+                              btnType: 'operation',
+                              callback: btnClick),
+                          MyCustomButton(
+                              text: "/",
+                              btnType: 'operation',
+                              callback: btnClick)
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MyCustomButton(text: "7", callback: btnClick),
+                          MyCustomButton(text: "8", callback: btnClick),
+                          MyCustomButton(text: "9", callback: btnClick),
+                          MyCustomButton(
+                              text: "*",
+                              btnType: 'operation',
+                              callback: btnClick)
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MyCustomButton(text: "4", callback: btnClick),
+                          MyCustomButton(text: "5", callback: btnClick),
+                          MyCustomButton(text: "6", callback: btnClick),
+                          MyCustomButton(
+                              text: "-",
+                              btnType: 'operation',
+                              callback: btnClick)
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          MyCustomButton(text: "1", callback: btnClick),
+                          MyCustomButton(text: "2", callback: btnClick),
+                          MyCustomButton(text: "3", callback: btnClick),
+                          MyCustomButton(
+                              text: "+",
+                              btnType: 'operatio',
+                              callback: btnClick)
+                        ],
+                      ),
+                      Row(
+                        //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          MyCustomButton(text: "0", callback: btnClick),
+                          MyCustomButton(text: ".", callback: btnClick),
+                          MyCustomButton(
+                              text: "=",
+                              btnType: 'operation',
+                              btnWidth: 2,
+                              callback: calculate)
+                        ],
+                      ),
+                    ],
+                  ),
+                )
               ]),
         ));
   }
