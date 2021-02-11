@@ -2,6 +2,10 @@
 
 A Simple calculator app that builth with Flutter.
 
+### Preview
+
+![Preview](https://github.com/ahanafi/flutter-calculator-app)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

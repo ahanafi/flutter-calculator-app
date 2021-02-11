@@ -196,3 +196,10 @@ class CalculatorAppState extends State<MyHomePage> {
         ));
   }
 }
+
+/* 
+  Created by
+  Name  : Ahmad Hanafi
+  Class : Software Engineering 1/7
+  ID    : 2017102020
+ */
