@@ -2,36 +2,52 @@ import 'package:flutter/material.dart';
 
 class MyCustomButton extends StatelessWidget {
   final String text;
-  final String btnType;
-  final double btnWidth;
+  double btnWidth;
   final Function callback;
+  final bool isNumber;
 
   MyCustomButton(
       {Key key,
       this.text,
-      this.btnType = 'number',
-      this.btnWidth = 4,
-      this.callback})
+      this.btnWidth = 1,
+      this.callback,
+      this.isNumber = true})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+    final bool isPotraitScreeen =
+        (mediaQuery.orientation == Orientation.portrait) ? true : false;
+
+    double _realBtnWidth = 4;
+    double _realBtnHeight = 4;
+
+    //Cek apakah layarnya landscape,
+    if (!isPotraitScreeen) {
+      _realBtnWidth = _realBtnWidth * 2;
+      _realBtnHeight = _realBtnHeight * 2;
+    }
+
+    //Cek ukuran button, apakah 1 (persegi), atau 2 (persegi panjang)
+    if (btnWidth > 1) {
+      _realBtnWidth = _realBtnWidth / 2;
+    }
+
     return Container(
       child: SizedBox(
-        width: MediaQuery.of(context).size.width / btnWidth,
-        height: MediaQuery.of(context).size.width / 4,
+        width: mediaQuery.size.width / _realBtnWidth,
+        height: mediaQuery.size.width / _realBtnHeight,
         child: FlatButton(
           shape: Border.all(color: Colors.white, width: 1.0),
           child: Text(
             text,
-            style: TextStyle(fontSize: MediaQuery.of(context).size.width / 16),
+            style: TextStyle(fontSize: mediaQuery.size.width / 16),
           ),
           onPressed: () {
             callback(text);
           },
-          color: (btnType != 'number')
-              ? Colors.deepOrangeAccent
-              : Colors.blueAccent,
+          color: (isNumber) ? Colors.blueAccent : Colors.deepOrangeAccent,
           textColor: Colors.white,
         ),
       ),
