@@ -10,7 +10,10 @@ void main() => runApp(MyCalculatorApp());
 class MyCalculatorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter Demo', home: MyHomePage());
+    return MaterialApp(
+        title: 'Flutter Demo',
+        home: MyHomePage(),
+        debugShowCheckedModeBanner: false);
   }
 }
 
@@ -76,8 +79,6 @@ class CalculatorAppState extends State<MyHomePage> {
 
       setState(() {
         _calculationHistory = _mathOperation;
-        print(_calculationHistory);
-        print(result.toString());
         _mathOperation = result.toString().split(".")[0];
       });
     } else {
