@@ -156,7 +156,6 @@ class CalculatorAppState extends State<MyHomePage> {
 
   Widget displayExpression(bool isPotrait, MediaQueryData mediaQuery) {
     return Container(
-      color: Colors.greenAccent,
       child: Text(_mathOperation,
           style: TextStyle(fontSize: 80, color: Colors.white),
           textAlign: TextAlign.right),
