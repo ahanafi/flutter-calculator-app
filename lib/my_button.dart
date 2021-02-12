@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyCustomButton extends StatelessWidget {
   final String text;
-  double btnWidth;
+  final double btnWidth;
   final Function callback;
   final bool isNumber;
 
