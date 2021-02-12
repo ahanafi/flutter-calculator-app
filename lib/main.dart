@@ -167,7 +167,7 @@ class CalculatorAppState extends State<MyHomePage> {
 
   Widget displayButtons(bool isPotrait, MediaQueryData mediaQuery) {
     return Container(
-      width: mediaQuery.size.height / 1,
+      width: mediaQuery.size.height / ((isPotrait) ? 2 : 1),
       child: Wrap(
         spacing: 0,
         runSpacing: 0,
